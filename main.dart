@@ -29,5 +29,9 @@ void main() {
   print('Before: $linkedList');
   var middleNode = linkedList.nodeAt(1)!;
   linkedList.insertAfter(middleNode, 3);
-  print('After:  $linkedList');
+  print('After insert:  $linkedList');
+  final poppedValue = linkedList.pop();
+  print("final: $linkedList, popped: $poppedValue");
+  linkedList.removeLast();
+  print(linkedList);
 }

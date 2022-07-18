@@ -56,6 +56,30 @@ class LinkedList<E> {
     return node.next!;
   }
 
+  /// removes node from first
+  E? pop() {
+    final value = head?.value;
+    head = head?.next;
+    if (isEmpty) {
+      tail = null;
+    }
+    return value;
+  }
+
+  // removes last node from linked list and return last value
+  E? removeLast() {
+    if (head?.next == null) pop();
+
+    var current = head;
+    while (current!.next != tail) {
+      current = current.next;
+    }
+    final value = tail?.value;
+    tail = current;
+    tail?.next = null;
+    return value;
+  }
+
   @override
   String toString() {
     if (isEmpty) return 'Empty List';
