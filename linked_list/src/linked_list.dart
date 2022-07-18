@@ -34,6 +34,28 @@ class LinkedList<E> {
     tail = tail!.next;
   }
 
+  /// returns index of a desired node
+  Node<E>? nodeAt(int index) {
+    var currentNode = head;
+    var currentIndex = 0;
+
+    while (currentNode != null && currentIndex < index) {
+      currentNode = currentNode.next;
+      currentIndex += 1;
+    }
+    return currentNode;
+  }
+
+  /// adds new node after given node
+  Node<E> insertAfter(Node<E> node, E value) {
+    if (tail == node) {
+      append(value);
+      return tail!;
+    }
+    node.next = Node(value: value, next: node.next);
+    return node.next!;
+  }
+
   @override
   String toString() {
     if (isEmpty) return 'Empty List';

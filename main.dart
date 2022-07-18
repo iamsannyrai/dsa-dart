@@ -20,12 +20,14 @@ void main() {
 
   // Linked List
   final linkedList = LinkedList<int>();
-  linkedList.push(3);
   linkedList.push(2);
   linkedList.push(1);
 
   linkedList.append(4);
   linkedList.append(5);
 
-  print(linkedList);
+  print('Before: $linkedList');
+  var middleNode = linkedList.nodeAt(1)!;
+  linkedList.insertAfter(middleNode, 3);
+  print('After:  $linkedList');
 }
