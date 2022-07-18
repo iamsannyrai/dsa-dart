@@ -80,6 +80,16 @@ class LinkedList<E> {
     return value;
   }
 
+  // removes node after the given node
+  E? removeAfter(Node<E> node) {
+    final value = node.next?.value;
+    if (node.next == tail) {
+      tail = node;
+    }
+    node.next = node.next?.next;
+    return value;
+  }
+
   @override
   String toString() {
     if (isEmpty) return 'Empty List';
