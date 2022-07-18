@@ -34,4 +34,8 @@ void main() {
   print("final: $linkedList, popped: $poppedValue");
   linkedList.removeLast();
   print(linkedList);
+
+  for (final element in linkedList) {
+    print(element);
+  }
 }
