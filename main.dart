@@ -1,6 +1,7 @@
 import 'linked_list/linked_list.dart';
 import 'queue/queue.dart';
 import 'stack/stack.dart';
+import 'tree/tree.dart';
 
 void main() {
   // // Stack
@@ -40,13 +41,48 @@ void main() {
   //   print(element);
   // }
 
-  // Queue
-  final queue = QueueList<String>();
-  queue.enqueue('Ray');
-  queue.enqueue('Brian');
-  queue.enqueue('Eric');
-  print(queue);
-  queue.dequeue();
-  print(queue);
-  print(queue.peek);
+  // // Queue
+  // final queue = QueueList<String>();
+  // queue.enqueue('Ray');
+  // queue.enqueue('Brian');
+  // queue.enqueue('Eric');
+  // print(queue);
+  // queue.dequeue();
+  // print(queue);
+  // print(queue.peek);
+
+  // Tree
+  final tree = makeBeverageTree();
+  tree.forEachDepthFirst((node) {
+    print(node.value);
+  });
+}
+
+TreeNode<String> makeBeverageTree() {
+  final tree = TreeNode('beverages');
+  final hot = TreeNode('hot');
+  final cold = TreeNode('cold');
+  final tea = TreeNode('tea');
+  final coffee = TreeNode('coffee');
+  final chocolate = TreeNode('cocoa');
+  final blackTea = TreeNode('black');
+  final greenTea = TreeNode('green');
+  final chaiTea = TreeNode('chai');
+  final soda = TreeNode('soda');
+  final milk = TreeNode('milk');
+  final gingerAle = TreeNode('ginger ale');
+  final bitterLemon = TreeNode('bitter lemon');
+  tree.add(hot);
+  tree.add(cold);
+  hot.add(tea);
+  hot.add(coffee);
+  hot.add(chocolate);
+  cold.add(soda);
+  cold.add(milk);
+  tea.add(blackTea);
+  tea.add(greenTea);
+  tea.add(chaiTea);
+  soda.add(gingerAle);
+  soda.add(bitterLemon);
+  return tree;
 }
