@@ -1,3 +1,5 @@
+import 'dart:io';
+
 class Node<T> {
   Node({required this.value, this.next});
 
@@ -120,5 +122,25 @@ class _LinkedListIterator<E> implements Iterator<E> {
       _currentNode = _currentNode?.next;
     }
     return _currentNode != null;
+  }
+}
+
+extension RemovableLinkedList<E> on LinkedList {
+  void removeAll(E value) {
+    while (head != null && head!.value == value) {
+      head = head!.next;
+    }
+    var previous = head;
+    var current = head!.next;
+    while (current != null) {
+      if (current.value == value) {
+        previous!.next = current.next;
+        current = current.next;
+        continue;
+      }
+      previous = current;
+      current = current.next;
+    }
+    tail = previous;
   }
 }
