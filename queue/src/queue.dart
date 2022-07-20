@@ -80,4 +80,6 @@ class QueueStack<E> implements Queue<E> {
 
   @override
   E? get peek => _leftStack.isNotEmpty ? _leftStack.last : _rightStack.first;
+
+  int get length => _leftStack.length + _rightStack.length;
 }
