@@ -19,7 +19,6 @@ class TreeNode<T> {
   void forEachLevelOrder(void Function(TreeNode<T> node) performAction) {
     final queue = QueueStack<TreeNode<T>>();
     performAction(this);
-    print(children);
     children.forEach(queue.enqueue);
     var node = queue.dequeue();
     while (node != null) {
@@ -27,5 +26,16 @@ class TreeNode<T> {
       node.children.forEach(queue.enqueue);
       node = queue.dequeue();
     }
+  }
+
+  // return node if found else return null
+  TreeNode? search(T value) {
+    TreeNode? result;
+    forEachLevelOrder((node) {
+      if (node.value == value) {
+        result = node;
+      }
+    });
+    return result;
   }
 }
